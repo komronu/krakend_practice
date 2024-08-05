@@ -1,0 +1,6 @@
+# folders
+.idea/
+
+# files
+.env.example
+*.so

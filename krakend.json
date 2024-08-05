@@ -1,0 +1,67 @@
+{
+  "$schema": "https://www.krakend.io/schema/krakend.json",
+  "version": 3,
+  "name": "KrakenD - API Gateway",
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "json",
+  "plugin": {
+    "pattern": ".so",
+    "folder": "/opt/krakend/plugins/"
+  },
+  "endpoints": [
+    {
+      "endpoint": "/v1/green/greeter",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/green",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "green"
+          ],
+          "disable_host_sanitize": false
+        }
+      ],
+      "input_headers": [
+        "Authorization"
+      ]
+    },
+    {
+      "endpoint": "/v1/red/greeter",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "url_pattern": "/red",
+          "encoding": "no-op",
+          "sd": "static",
+          "method": "GET",
+          "host": [
+            "red"
+          ],
+          "disable_host_sanitize": false
+        }
+      ],
+      "input_headers": [
+        "Authorization"
+      ]
+    }
+  ],
+  "extra_config": {
+    "plugin/http-server": {
+      "name": [
+        "auth-plugin"
+      ],
+      "auth-plugin": {
+        "public_key": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpHUoVffNxIRPrXGogn3r2IzUNYPi\nYGbjdR4j8iqEHv9NZfKqPJ+Nc6w6drN3wLjS/nKFeF6/E8AzWi1HHkNJBg==\n-----END PUBLIC KEY-----",
+        "ignore": [
+          "/v1/red/greeter"
+        ]
+      }
+    }
+  }
+}
