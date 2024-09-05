@@ -9,8 +9,8 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/red", func(writer http.ResponseWriter, request *http.Request) {
-		fmt.Fprintf(writer, "Hello Red World! %d, token %s", rand.Int(), request.Header.Get("Authorization"))
+	mux.HandleFunc("/red", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello Red World! %d, token %s, user id %s", rand.Int(), r.Header.Get("Authorization"), r.Header.Get("x-subject-id"))
 	})
 
 	if err := http.ListenAndServe(":80", mux); err != nil {

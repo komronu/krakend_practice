@@ -27,7 +27,8 @@
         }
       ],
       "input_headers": [
-        "Authorization"
+        "Authorization",
+        "x-subject-id"
       ]
     },
     {
@@ -47,7 +48,8 @@
         }
       ],
       "input_headers": [
-        "Authorization"
+        "Authorization",
+        "x-subject-id"
       ]
     }
   ],
@@ -57,10 +59,11 @@
         "auth-plugin"
       ],
       "auth-plugin": {
-        "public_key": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEpHUoVffNxIRPrXGogn3r2IzUNYPi\nYGbjdR4j8iqEHv9NZfKqPJ+Nc6w6drN3wLjS/nKFeF6/E8AzWi1HHkNJBg==\n-----END PUBLIC KEY-----",
+        "public_key": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEq9os3QdlEjSfy/LS0M5uLm5n+8MR\nlzAVlpoWvUy5N9xd9zSHth0548n5zX6FiriULqoBwCVMR1S3U3/tufPg+A==\n-----END PUBLIC KEY-----",
         "ignore": [
           "/v1/red/greeter"
-        ]
+        ],
+        "conn_string": "postgres://endpoint"
       }
     }
   }
