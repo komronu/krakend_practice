@@ -11,7 +11,7 @@
   },
   "endpoints": [
     {
-      "endpoint": "/v1/green/greeter",
+      "endpoint": "/v1/green/hello",
       "method": "GET",
       "output_encoding": "no-op",
       "backend": [
@@ -25,14 +25,10 @@
           ],
           "disable_host_sanitize": false
         }
-      ],
-      "input_headers": [
-        "Authorization",
-        "x-subject-id"
       ]
     },
     {
-      "endpoint": "/v1/red/greeter",
+      "endpoint": "/v1/red/hello",
       "method": "GET",
       "output_encoding": "no-op",
       "backend": [
@@ -46,10 +42,6 @@
           ],
           "disable_host_sanitize": false
         }
-      ],
-      "input_headers": [
-        "Authorization",
-        "x-subject-id"
       ]
     }
   ]

@@ -6,7 +6,7 @@ COPY . .
 
 RUN go env -w GOOS=linux
 RUN go env -w GOARCH=amd64
-RUN go build -o green ./cmd/green
+RUN go build -o green ./cmd/server
 
 FROM golang:1.22.5-alpine3.19
 

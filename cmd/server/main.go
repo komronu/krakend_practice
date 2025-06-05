@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"math/rand"
 	"net/http"
 )
 
@@ -20,7 +19,7 @@ func main() {
 }
 
 func hello(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World! %d, token %s, user id %s", rand.Int(), r.Header.Get("Authorization"), r.Header.Get("x-subject-id"))
+	fmt.Fprintf(w, "Hello World!")
 }
 
 func ping(w http.ResponseWriter, r *http.Request) {
