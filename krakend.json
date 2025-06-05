@@ -16,7 +16,7 @@
       "output_encoding": "no-op",
       "backend": [
         {
-          "url_pattern": "/green",
+          "url_pattern": "/hello",
           "encoding": "no-op",
           "sd": "static",
           "method": "GET",
@@ -37,7 +37,7 @@
       "output_encoding": "no-op",
       "backend": [
         {
-          "url_pattern": "/red",
+          "url_pattern": "/hello",
           "encoding": "no-op",
           "sd": "static",
           "method": "GET",
@@ -52,19 +52,5 @@
         "x-subject-id"
       ]
     }
-  ],
-  "extra_config": {
-    "plugin/http-server": {
-      "name": [
-        "auth-plugin"
-      ],
-      "auth-plugin": {
-        "public_key": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEq9os3QdlEjSfy/LS0M5uLm5n+8MR\nlzAVlpoWvUy5N9xd9zSHth0548n5zX6FiriULqoBwCVMR1S3U3/tufPg+A==\n-----END PUBLIC KEY-----",
-        "ignore": [
-          "/v1/red/greeter"
-        ],
-        "conn_string": "postgres://endpoint"
-      }
-    }
-  }
+  ]
 }
