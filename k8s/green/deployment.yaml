@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green
+  labels:
+    app: green
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: green
+  template:
+    metadata:
+      labels:
+        app: green
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+      containers:
+      - name: green
+        image: "{{IMAGE}}"
+        ports:
+          - containerPort: 80
+        resources:
+          limits:
+            memory: 200Mi
+            cpu: 100m
+          requests:
+            memory: 50Mi
+            cpu: 50m             

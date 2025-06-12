@@ -1,0 +1,30 @@
+{
+  "version": 3,
+  "name": "krakend-gateway",
+  "endpoints": [
+    {
+      "endpoint": "/v1/red/",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": ["http://red"],
+          "url_pattern": "/",
+          "encoding": "no-op"
+        }
+      ]
+    },
+    {
+      "endpoint": "/v1/green/",
+      "method": "GET",
+      "output_encoding": "no-op",
+      "backend": [
+        {
+          "host": ["http://green"],
+          "url_pattern": "/",
+          "encoding": "no-op"
+        }
+      ]
+    }
+  ]
+}
