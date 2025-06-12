@@ -55,8 +55,8 @@ jobs:
           IMAGE_TAG: krakend_${{ steps.commit.outputs.short }}
         run: |
           export FULL_IMAGE_PATH=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          sed -i "s|{{IMAGE}}|$FULL_IMAGE_PATH|1" k8s/krakend/deployment.yaml
-          sed -i 's|ACM_CERTIFICATE_ARN|'"${ACM_CERTIFICATE_ARN}"'|g' k8s/krakend/ingress.yaml
+          sed -i "s|{{IMAGE}}|$FULL_IMAGE_PATH|1" k8s/api-gw/deployment.yaml
+          sed -i 's|ACM_CERTIFICATE_ARN|'"${ACM_CERTIFICATE_ARN}"'|g' k8s/api-gw/ingress.yaml
 
       - name: Deploy to EKS
-        run: kubectl apply -f k8s/krakend/
+        run: kubectl apply -f k8s/api-gw/
